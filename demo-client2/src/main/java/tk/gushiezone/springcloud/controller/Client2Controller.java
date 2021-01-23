@@ -18,15 +18,14 @@ public class Client2Controller {
     @Value("${spring.application.name}")
     private String applicationName;
 
+    @Value("${server.port}")
+    private String serverPort;
+
     @GetMapping("/hello")
     public String hello() {
 
-        return "This is " + applicationName;
+        return "This is " + applicationName + ":" + serverPort;
     }
-
-
-
-
 
 
 }

@@ -13,3 +13,15 @@ eureka:
   instance:
     lease-renewal-interval-in-seconds: 10 # 租约更新时间（心跳上报间隔时间）
     lease-expiration-duration-in-seconds: 20 # 租约到期持续时间（心跳上报最大容忍时间）
+
+# 关闭懒加载，启用饥饿加载
+#ribbon:
+#  eager-load:
+#    enabled: true
+#    clients: demo-client2
+
+
+#demo-client2:
+#  ribbon:
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+

@@ -11,7 +11,6 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  */
 @EnableDiscoveryClient
 @SpringBootApplication
-// @EnableEurekaClient todo 这个只支持eureka注册中心
 public class Client1Application {
 
     public static void main(String[] args) {
