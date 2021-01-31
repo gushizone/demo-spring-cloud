@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
+import tk.gushizone.springcloud.api.Client2Api;
+import tk.gushizone.springcloud.server.Client2Server;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -35,6 +37,12 @@ public class Client1Controller {
     @Resource(name = "loadBalanceRest")
     private RestTemplate loadBalanceRest;
 
+    @Resource
+    private Client2Server client2Server;
+
+    @Resource
+    private Client2Api client2Api;
+
     @GetMapping("/hello")
     public List<String> hello() {
 
@@ -42,14 +50,30 @@ public class Client1Controller {
 
         results.add("This is " + applicationName);
 
-//        测试时注释：只用一次ribbon，方便判断负载均衡策略
-//        results.add(loadBalancerClient());
+        results.add(loadBalancerClient());
 
+//        测试时注释其他：只用一次ribbon，方便判断负载均衡策略
         results.add(ribbon());
 
+        results.add(feign());
 
+        results.add(feignApi());
 
         return results;
+    }
+
+    /**
+     * feign - api式
+     */
+    private String feignApi() {
+        return client2Api.hello();
+    }
+
+    /**
+     * feign
+     */
+    private String feign() {
+        return client2Server.hello();
     }
 
     /**

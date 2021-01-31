@@ -11,6 +11,7 @@
         <module>demo-eureka</module>
         <module>demo-client1</module>
         <module>demo-client2</module>
+        <module>demo-api</module>
     </modules>
 
     <packaging>pom</packaging>

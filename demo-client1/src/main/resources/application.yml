@@ -5,6 +5,8 @@ server:
 spring:
   application:
     name: demo-client1
+  main:
+    allow-bean-definition-overriding: true # 运行bean定义的重载
 
 eureka:
   client:
