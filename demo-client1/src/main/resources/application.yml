@@ -25,5 +25,12 @@ eureka:
 
 #demo-client2:
 #  ribbon:
-#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule # 负载均衡策略
+# 超时重试，
+# 最大超时时间 MAX(Response Time) = (ConnectTimeout + ReadTimeout) * (MaxAutoRetries + 1) * (MaxAutoRetriesNextServer + 1)
+#    OkToRetryOnAllOperations: true # 所有Http方法都可以重试 （这里是为了测试，一般只允许GET或严格幂等都接口）
+#    ConnectTimeout: 1000 # 连接超时时间
+#    ReadTimeout: 2000 # 响应超时时间
+#    MaxAutoRetries: 2 # 每台节点重试次数
+#    MaxAutoRetriesNextServer: 2 # 可重试节点数
 
