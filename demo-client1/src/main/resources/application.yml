@@ -23,6 +23,12 @@ eureka:
 #    clients: demo-client2
 
 
+# ribbon 全局配置
+#ribbon:
+#  ConnectTimeout: 1000 # 连接超时时间
+#  ReadTimeout: 2000 # 响应超时时间
+
+# ribbon 特定服务配置
 #demo-client2:
 #  ribbon:
 #    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule # 负载均衡策略
@@ -34,3 +40,15 @@ eureka:
 #    MaxAutoRetries: 2 # 每台节点重试次数
 #    MaxAutoRetriesNextServer: 2 # 可重试节点数
 
+# feign 配置，优先级高于 ribbon
+feign:
+  client:
+    config:
+      # 全局配置
+      default:
+        connectTimeout: 1000
+        readTimeout: 5000
+      # 特定服务配置
+      demo-client2:
+        connectTimeout: 1000
+        readTimeout: 2000
