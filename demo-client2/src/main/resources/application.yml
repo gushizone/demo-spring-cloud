@@ -5,6 +5,8 @@ server:
 spring:
   application:
     name: demo-client2
+  main:
+    allow-bean-definition-overriding: true # 允许bean定义的重载，即bean同名覆盖注册
 
 eureka:
   client:
