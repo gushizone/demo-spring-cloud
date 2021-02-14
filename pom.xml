@@ -12,6 +12,8 @@
         <module>demo-client1</module>
         <module>demo-client2</module>
         <module>demo-api</module>
+        <module>demo-hystrix-turbine</module>
+        <module>demo-hystrix-dashboard</module>
     </modules>
 
     <packaging>pom</packaging>
