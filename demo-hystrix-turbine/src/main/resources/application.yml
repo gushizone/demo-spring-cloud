@@ -2,7 +2,7 @@ server:
   port: 30000
 management:
   server:
-    port: 30001
+    port: 31001
 
 spring:
   application:

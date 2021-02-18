@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Slf4j
 @Component
-@RequestMapping("client2Fallback") // todo 要重新定义，欺骗spring，避免Ambiguous mapping
+@RequestMapping("client2Fallback") // todo 其实这里只要求实现接口即可，不会远程调用，所有可以重新定义，欺骗spring，避免Ambiguous mapping
 public class Client2Fallback implements Client2HystrixApi {
 
     @Override
