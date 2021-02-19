@@ -1,0 +1,10 @@
+# todo 需要放在 bootstrap.yml
+# 动态刷新配置
+# http://localhost:10001/actuator/refresh
+spring:
+  cloud:
+    config:
+      name: demo-config-client # 可以覆盖spring.application.name
+      uri: http://localhost:50000
+      profile: dev
+      label: master

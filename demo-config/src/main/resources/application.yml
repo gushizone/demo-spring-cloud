@@ -1,0 +1,19 @@
+# http://localhost:50000/{application}/{profile}
+# http://localhost:50000/{application}/{profile}/{label}
+# http://localhost:50000/{application}-{profile}.{suffix}
+# http://localhost:50000/{label}/{application}-{profile}.{suffix}
+server:
+  port: 50000
+
+spring:
+  application:
+    name: demo-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/gushizone/demo-spring-cloud-config.git
+          force-pull: true # 强制拉取配置文件
+          search-paths: '{application}' # 将配置文件放到接入方服务名称对应文件夹下面
+#          username:
+#          password:
