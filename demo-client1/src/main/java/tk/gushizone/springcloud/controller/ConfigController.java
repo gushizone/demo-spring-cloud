@@ -26,6 +26,9 @@ public class ConfigController {
     @Value("${config.profile:test}")
     private String configProfile;
 
+    @Value("${password:}")
+    private String password;
+
 
     @GetMapping("/info")
     public String info() {
@@ -35,6 +38,11 @@ public class ConfigController {
     @GetMapping("/refresh")
     public String refresh() {
         return configVersion;
+    }
+
+    @GetMapping("/encrypt")
+    public String encrypt() {
+        return password;
     }
 
 }

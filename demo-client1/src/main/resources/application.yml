@@ -7,13 +7,13 @@ spring:
   main:
     allow-bean-definition-overriding: true # 允许bean定义的重载，即bean同名覆盖注册
 
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:20000/eureka # 注册中心（集群情况下，可多配置）
-  instance:
-    lease-renewal-interval-in-seconds: 10 # 租约更新时间（心跳上报间隔时间）
-    lease-expiration-duration-in-seconds: 20 # 租约到期持续时间（心跳上报最大容忍时间）
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:20000/eureka # 注册中心（集群情况下，可多配置）
+#  instance:
+#    lease-renewal-interval-in-seconds: 10 # 租约更新时间（心跳上报间隔时间）
+#    lease-expiration-duration-in-seconds: 20 # 租约到期持续时间（心跳上报最大容忍时间）
 
 # 关闭懒加载，启用饥饿加载
 #ribbon:

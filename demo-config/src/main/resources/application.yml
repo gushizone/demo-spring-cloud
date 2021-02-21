@@ -17,3 +17,17 @@ spring:
           search-paths: '{application}' # 将配置文件放到接入方服务名称对应文件夹下面
 #          username:
 #          password:
+        # 覆盖属性
+#        overrides:
+#          config:
+#            source: config
+
+
+#  可选：借助eureka实现高可用
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:20000/eureka # 注册中心（集群情况下，可多配置）
+  instance:
+    lease-renewal-interval-in-seconds: 10 # 租约更新时间（心跳上报间隔时间）
+    lease-expiration-duration-in-seconds: 20 # 租约到期持续时间（心跳上报最大容忍时间）

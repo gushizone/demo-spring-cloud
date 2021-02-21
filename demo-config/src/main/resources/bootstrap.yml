@@ -1,0 +1,5 @@
+#  http://localhost:50000/encrypt/status
+#  post http://localhost:50000/encrypt
+#  post http://localhost:50000/decrypt
+encrypt:
+  key: 1234567890 # 对称密钥
