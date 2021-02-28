@@ -13,6 +13,8 @@ eureka:
 # 配置中心配置项，需要放在 bootstrap.yml
 spring:
   cloud:
+    stream:
+      default-binder: rabbit
     config:
       name: demo-config-client # 可以覆盖spring.application.name
 #      以uri方式连接
@@ -23,3 +25,9 @@ spring:
         service-id: demo-config
       profile: dev
       label: master
+  # rabbitmq : bus
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
