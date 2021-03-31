@@ -1,0 +1,39 @@
+# http://localhost:60000/actuator/gateway/routes
+# post http://localhost:60000/actuator/gateway/routes/{id} 动态添加路由规则
+# delete http://localhost:60000/actuator/gateway/routes/{id} 动态删除路由规则
+server:
+  port: 60000
+
+spring:
+  application:
+    name: demo-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true # 自动路由
+          lower-case-service-id: true
+#      routes:
+
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:20000/eureka # 注册中心（集群情况下，可多配置）
+  instance:
+    lease-renewal-interval-in-seconds: 10 # 租约更新时间（心跳上报间隔时间）
+    lease-expiration-duration-in-seconds: 20 # 租约到期持续时间（心跳上报最大容忍时间）
+
+
+# actuator 配置
+management:
+  security:
+    enabled: false # 关闭安全检查 （仅供测试）
+  endpoints:
+    web:
+      exposure:
+        include: '*' # 暴露所有接口
+  endpoint:
+    health:
+      show-details: always
