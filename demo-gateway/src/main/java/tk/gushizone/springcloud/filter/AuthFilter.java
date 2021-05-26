@@ -23,7 +23,7 @@ import tk.gushizone.springcloud.api.auth.dto.VerifyParam;
  * @date 2021/3/31 11:39 下午
  */
 @Slf4j
-@Component
+//@Component
 public class AuthFilter implements GlobalFilter, Ordered {
 
     private static final String AUTH = "auth";
