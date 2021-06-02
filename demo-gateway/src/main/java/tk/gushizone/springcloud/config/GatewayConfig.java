@@ -6,6 +6,7 @@ import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
+import reactor.core.publisher.Mono;
 import tk.gushizone.springcloud.filter.TimerFilter;
 
 /**
@@ -26,8 +27,10 @@ public class GatewayConfig {
                 .route(r -> r.path("/demo-client2/**")
                         .filters(f -> f
                                 .stripPrefix(1)
-                                .filter(timerFilter))
-                        .uri("lb://DEMO-CLIENT2"))
+                                .modifyResponseBody(String.class, String.class,
+                                        (exchange, s) -> Mono.just(s.toUpperCase()))
+                                .filter(timerFilter)
+                        ).uri("lb://DEMO-CLIENT2"))
                 .build();
     }
 
